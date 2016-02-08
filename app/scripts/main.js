@@ -1,8 +1,8 @@
 /* global $ */
-var worktime = 2;
-var breaktime = 1;
-var workduration = worktime * 60 * 100;
-var breakduration = breaktime * 60 * 100;
+var worktime = 25;
+var breaktime = 5;
+var workduration = worktime * 60 * 1000;
+var breakduration = breaktime * 60 * 1000;
 var timerMinute;
 var timerSecond;
 var timerintervalID;
@@ -16,7 +16,7 @@ function workTimer() {
     timerSecond = 60;
     timerMinute--;
     $("#timerMinuteID").html(timerMinute);
-    timerintervalID = setInterval(timer, 100);
+    timerintervalID = setInterval(timer, 1000);
     timerendID = setTimeout(clearTimer, workduration);
     transitionToBreak = setTimeout(breakTimer, workduration + 1);
 }
@@ -41,7 +41,7 @@ function breakTimer() {
     timerSecond = 60;
     timerMinute--;
     $("#timerMinuteID").html(timerMinute);
-    timerintervalID = setInterval(timer, 100);
+    timerintervalID = setInterval(timer, 1000);
     timerendID = setTimeout(clearTimer, breakduration);
     transitionToWork = setTimeout(workTimer, breakduration);
 }
