@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>FCC Pomodoro Clock</title>
     <meta name="description" content="">
@@ -17,49 +18,57 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/clock.css">
     <!-- endbuild -->
-  </head>
-  <body>
+</head>
+
+<body>
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    
+
     <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-        <h3 class="text-muted">FCC Pomodoro Clock</h3>
-      </div>
-
-      <div class="jumbotron">
-        <h1>'Allo, 'Allo!</h1>
-        <p class="lead">Always a pleasure scaffolding your apps.</p>
-        <p><a class="btn btn-lg btn-success" href="#">Splendid! <span class="glyphicon glyphicon-ok"></span></a></p>
-      </div>
-
-      <div class="row marketing">
-        <div class="col-lg-6">
-          <h4><a href="https://html5boilerplate.com/">HTML5 Boilerplate</a></h4>
-          <p>HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.</p>
-
-          
-
-          <h4><a href="http://getbootstrap.com/">Bootstrap</a></h4>
-          <p>Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.</p>
-
-          
+        <div class="header">
+            <h3 class="text-muted">FCC Pomodoro Clock</h3>
         </div>
-      </div>
+        <div class="jumbotron">
+            <div class="container">
+                <h1>Pomodoro Timer</h1>
+                <div class="jumbotron row">
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <h3>Work Time</h3>
+                            <img id="workTimeMore" src="http://uxrepo.com/static/icon-sets/mfg-labs/svg/plus.svg">
+                            <h1 id="worktimenumber">25</h1>
+                            <img id="workTimeLess" src="http://www.iconsdb.com/icons/preview/black/minus-7-xxl.png">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <h3> Break Time</h3>
+                            <img id="BreakTimeMore" src="http://uxrepo.com/static/icon-sets/mfg-labs/svg/plus.svg">
+                            <h1 id="breaktimenumber">5</h1>
+                            <img id="BreakTimeLess" src="http://www.iconsdb.com/icons/preview/black/minus-7-xxl.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="jumbotron row">
+                    <button class="btn btn-default" id="start">Start</button>
+                    <button class="btn btn-default" id="stop">Stop</button>
+                </div>
+                <div id="circle">
+                    <h1 id="timerMinuteID"></h1>:
+                    <h1 id="timerSecondID"></h1>
+                </div>
 
-      <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-      </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+        </div>
     </div>
-    
+
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -67,7 +76,7 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-    
+
     <!-- build:js(.) scripts/plugins.js -->
     <script src="/bower_components/bootstrap/js/affix.js"></script>
     <script src="/bower_components/bootstrap/js/alert.js"></script>
@@ -82,7 +91,7 @@
     <script src="/bower_components/bootstrap/js/collapse.js"></script>
     <script src="/bower_components/bootstrap/js/tab.js"></script>
     <!-- endbuild -->
-    
+
 
     <!-- build:js(.tmp) scripts/main.js -->
     <script src="scripts/main.js"></script>
@@ -90,12 +99,13 @@
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
-      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
       function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
       e=o.createElement(i);r=o.getElementsByTagName(i)[0];
       e.src='https://www.google-analytics.com/analytics.js';
       r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
       ga('create','UA-XXXXX-X');ga('send','pageview');
     </script>
-  </body>
+</body>
+
 </html>
