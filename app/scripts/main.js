@@ -1,8 +1,8 @@
 /* global $ */
 var worktime = 2;
 var breaktime = 1;
-var workduration = worktime * 60 * 1000;
-var breakduration = breaktime * 60 * 1000;
+var workduration = worktime * 60 * 100;
+var breakduration = breaktime * 60 * 100;
 var timerMinute;
 var timerSecond;
 var timerintervalID;
@@ -11,14 +11,14 @@ var transitionToBreak;
 var transitionToWork;
 
 function workTimer() {
-    // PLAY NOISE 
+    stop();
     timerMinute = worktime;
     timerSecond = 60;
     timerMinute--;
     $("#timerMinuteID").html(timerMinute);
-    timerintervalID = setInterval(timer, 1000);
+    timerintervalID = setInterval(timer, 100);
     timerendID = setTimeout(clearTimer, workduration);
-    transitionToBreak = setTimeout(breakTimer, workduration+1);
+    transitionToBreak = setTimeout(breakTimer, workduration + 1);
 }
 
 function timer() {
@@ -37,12 +37,11 @@ function clearTimer() {
 }
 
 function breakTimer() {
-    // PLAY NOISE 
     timerMinute = breaktime;
     timerSecond = 60;
     timerMinute--;
     $("#timerMinuteID").html(timerMinute);
-    timerintervalID = setInterval(timer, 1000);
+    timerintervalID = setInterval(timer, 100);
     timerendID = setTimeout(clearTimer, breakduration);
     transitionToWork = setTimeout(workTimer, breakduration);
 }
@@ -61,18 +60,26 @@ $(document).ready(function () {
     $('#workTimeMore').click(function () {
         worktime++;
         $("#worktimenumber").html(worktime);
+        stop();
     });
     $('#workTimeLess').click(function () {
-        worktime--;
+        if (worktime > 1) {
+            worktime--;
+        }
         $("#worktimenumber").html(worktime);
+        stop();
     });
     $('#BreakTimeMore').click(function () {
         breaktime++;
         $("#breaktimenumber").html(breaktime);
+        stop();
     });
     $('#BreakTimeLess').click(function () {
-        breaktime--;
+        if (breaktime > 1) {
+            breaktime--;
+        }
         $("#breaktimenumber").html(breaktime);
+        stop();
     });
     $('#start').click(function () {
         workTimer();
@@ -81,3 +88,10 @@ $(document).ready(function () {
         stop();
     });
 });
+
+window.onload = function () {
+    $("#worktimenumber").html(worktime);
+    $("#breaktimenumber").html(breaktime);
+    stop();
+
+}
